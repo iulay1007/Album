@@ -1,4 +1,4 @@
-package com.example.photo.adapter.fragment;
+package com.example.photo.fragment;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -19,15 +19,16 @@ import uk.co.senab.photoview.PhotoView;
 import static com.example.photo.MainActivity.imageBeanList;
 import static com.example.photo.adapter.RecyclerviewAdapter.pic_position;
 
-public class RightFragment extends Fragment {private PhotoView photoView;
+public class LeftFragment extends Fragment {
+    private PhotoView photoView;
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.right_fragment_layout, container, false);
+        View view = inflater.inflate(R.layout.left_fragment_layout, container, false);
 
         photoView = (PhotoView) view.findViewById(R.id.photo_view);
-        pic_position++;
+        pic_position--;
         Glide.with(photoView.getContext()).load(imageBeanList.get(pic_position).getPath()).into(photoView);
 
         return view;

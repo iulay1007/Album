@@ -8,25 +8,19 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.util.Log;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.example.photo.adapter.PictureSlideAdapter;
-import com.example.photo.adapter.fragment.LeftFragment;
-import com.example.photo.adapter.fragment.RightFragment;
+import com.example.photo.fragment.LeftFragment;
+import com.example.photo.fragment.RightFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.photo.MainActivity.imageBeanList;
-
 public class MainActivity2 extends AppCompatActivity {
 
     private List<ImageBean> list = new ArrayList<>();
-    private List<Fragment> fragmentlist=new ArrayList<>();;
+  //  private List<Fragment> fragmentlist=new ArrayList<>();;
     ImageView imageView;
     private ViewPager viewPager;
     private PictureSlideAdapter pictureSlideAdapter;
@@ -41,17 +35,18 @@ public class MainActivity2 extends AppCompatActivity {
 
 
 
-        Fragment leftFragment = new LeftFragment();
+   /*     Fragment leftFragment = new LeftFragment();
         Fragment centerFragment=new ShowPictureFragment();
         Fragment rightFragment = new RightFragment();
         fragmentlist.add(centerFragment);
         fragmentlist.add(leftFragment);
 
         fragmentlist.add(rightFragment);
+*/
 
-
-        pictureSlideAdapter=new PictureSlideAdapter(getSupportFragmentManager(),fragmentlist);
+        pictureSlideAdapter=new PictureSlideAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pictureSlideAdapter);
+
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -69,6 +64,8 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
       //  viewPager.addOnPageChangeListener();
+      // viewPager.setOffscreenPageLimit(list.size()/2);
+       // viewPager.setCurrentItem((list.size()) * 100);
 
         Intent intent=getIntent();
 

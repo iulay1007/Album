@@ -36,7 +36,9 @@ public class ShowPictureFragment extends Fragment {
         View view=inflater.inflate(R.layout.fragment_layout,container,false);
        // imageView=(ImageView) view.findViewById(R.id.imageview2);
         photoView=(PhotoView) view.findViewById(R.id.photo_view);
+
         Glide.with(photoView.getContext()).load(imageBeanList.get(pic_position).getPath()).into(photoView);
+        pic_position++;
         //photoView.setOnScrollChangeListener();
 
       /*  gestureDetector=new GestureDetector(getContext(), new GestureDetector.OnGestureListener() {
